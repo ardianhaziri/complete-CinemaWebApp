@@ -4,19 +4,19 @@ using System.Linq;
 
 namespace CinemaApplicationWEB.Controllers
 {
-    public class ActorsController : Controller
-    {
+	public class ActorsController : Controller
+	{
 
-        private readonly AppDbContext _context;
+		private readonly AppDbContext _context;
 
-        public ActorsController(AppDbContext context)
-        {
-            _context = context;
-        }
-        public IActionResult Index()
-        {
-            var data = _context.Actors.ToList();
-            return View();
-        }
-    }
+		public ActorsController(AppDbContext context)
+		{
+			_context = context;
+		}
+		public IActionResult Index()
+		{
+			var data = _context.Actors.ToList();
+			return View(data);
+		}
+	}
 }
