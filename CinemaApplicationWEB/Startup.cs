@@ -1,4 +1,5 @@
 using CinemaApplicationWEB.Data;
+using CinemaApplicationWEB.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,9 @@ namespace CinemaApplicationWEB
             //DbContect Config
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaulConnectionString")));
             services.AddControllersWithViews();
+
+            //Services Config
+            services.AddScoped<IActorsService, ActorsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
