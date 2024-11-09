@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using CinemaApplicationWEB.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApplicationWEB.Models
 {
-    public class Actor
+    public class Actor: IEntityBase
     {
         [Key]
         public int Id { get; set; }

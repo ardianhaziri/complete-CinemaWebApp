@@ -1,4 +1,5 @@
 using CinemaApplicationWEB.Data;
+using CinemaApplicationWEB.Data.Base;
 using CinemaApplicationWEB.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,7 @@ namespace CinemaApplicationWEB
 
             //Services Config
             services.AddScoped<IActorsService, ActorsService>();
+            services.AddScoped<IProducersService, ProducersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
