@@ -1,4 +1,5 @@
-﻿using CinemaApplicationWEB.Data.Enums;
+﻿using CinemaApplicationWEB.Data.Base;
+using CinemaApplicationWEB.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CinemaApplicationWEB.Models
 {
-    public class Movie
+    public class Movie: IEntityBase
     {
         [Key]
         public int Id { get; set; }
