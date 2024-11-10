@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using CinemaApplicationWEB.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApplicationWEB.Models
 {
-    public class Cinema
+    public class Cinema:IEntityBase
     {
         [Key]
         public int Id { get; set; }

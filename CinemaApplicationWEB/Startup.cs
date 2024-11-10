@@ -34,6 +34,7 @@ namespace CinemaApplicationWEB
             //Services Config
             services.AddScoped<IActorsService, ActorsService>();
             services.AddScoped<IProducersService, ProducersService>();
+            services.AddScoped<ICinemasService, CinemasSevice>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
