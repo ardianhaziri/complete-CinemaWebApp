@@ -1,4 +1,5 @@
 ﻿using CinemaApplicationWEB.Data.Base;
+using CinemaApplicationWEB.Data.ViewModels;
 using CinemaApplicationWEB.Models;
 using System.Threading.Tasks;
 
@@ -8,5 +9,9 @@ namespace CinemaApplicationWEB.Data.Services
     {
 
         Task<Movie> GetMovieByIdAsync(int id);
+
+        Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues();
+
+        Task AddNewMovieAsync(NewMovieVM data);
     }
 }
