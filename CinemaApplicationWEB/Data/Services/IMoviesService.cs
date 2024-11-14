@@ -13,5 +13,7 @@ namespace CinemaApplicationWEB.Data.Services
         Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues();
 
         Task AddNewMovieAsync(NewMovieVM data);
+
+        Task UpdateMovieAsync(NewMovieVM data);
     }
 }
