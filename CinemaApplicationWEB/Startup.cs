@@ -1,8 +1,10 @@
 using CinemaApplicationWEB.Data;
 using CinemaApplicationWEB.Data.Base;
+using CinemaApplicationWEB.Data.Cart;
 using CinemaApplicationWEB.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +38,11 @@ namespace CinemaApplicationWEB
             services.AddScoped<IProducersService, ProducersService>();
             services.AddScoped<ICinemasService, CinemasSevice>();
             services.AddScoped<IMoviesService, MoviesService>();
+            
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +62,7 @@ namespace CinemaApplicationWEB
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 
