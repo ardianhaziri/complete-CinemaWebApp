@@ -1,4 +1,5 @@
-﻿using eTickets.Models;
+﻿using CinemaApplicationWEB.Models;
+using eTickets.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
