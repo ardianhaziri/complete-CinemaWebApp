@@ -38,6 +38,7 @@ namespace CinemaApplicationWEB
             services.AddScoped<IProducersService, ProducersService>();
             services.AddScoped<ICinemasService, CinemasSevice>();
             services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped<IOrdersService, OrdersService>();
             
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
