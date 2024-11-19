@@ -4,6 +4,8 @@ using CinemaApplicationWEB.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
 
 namespace CinemaApplicationWEB.Controllers
 {
@@ -17,7 +19,7 @@ namespace CinemaApplicationWEB.Controllers
             _moviesService = moviesService;
             _shoppingCart = shoppingCart;
             _ordersService = ordersService;
-            
+
         }
         public async Task<IActionResult> Index()
         {
@@ -60,12 +62,13 @@ namespace CinemaApplicationWEB.Controllers
 
         public async Task<IActionResult> CompleteOrder()
         {
-            var item = _shoppingCart.GetShoppingCartItems();
+            var items = _shoppingCart.GetShoppingCartItems();
             string userId = "";
             string userEmailAddress = "";
 
-            await _ordersService.StoreOrderAsync(item, userId, userEmailAddress);
+            await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
             await _shoppingCart.ClearShoppingCartAsync();
+
             return View("OrderCompleted");
         }
     }
