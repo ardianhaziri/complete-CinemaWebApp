@@ -1,4 +1,4 @@
-﻿using eTickets.Models;
+﻿
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +14,15 @@ namespace CinemaApplicationWEB.Data.Services
         {
             _context = context;
         }
-        public async Task<List<Order>> GetOrdersByUserIdAsync(string userId)
+        public async Task<List<Order>> GetOrdersByUserAndRoleAsync(string userId, string userRole)
 		{
-			var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Movie).Where(n => n.UserId == userId).ToListAsync();
+			var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Movie).Include(n => n.User).ToListAsync();
+
+			if(userRole != "Admin")
+			{
+				orders = orders.Where(n => n.UserId == userId).ToList();
+			}
+
 			return orders;
 		}
 

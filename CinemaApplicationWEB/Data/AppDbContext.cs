@@ -1,5 +1,5 @@
 ﻿using CinemaApplicationWEB.Models;
-using eTickets.Models;
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

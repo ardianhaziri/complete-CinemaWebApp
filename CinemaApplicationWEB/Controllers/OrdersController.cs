@@ -23,9 +23,10 @@ namespace CinemaApplicationWEB.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            string userId = "";
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role);
 
-            var orders = await _ordersService.GetOrdersByUserIdAsync(userId);
+            var orders = await _ordersService.GetOrdersByUserAndRoleAsync(userId,userRole);
             return View(orders);
         }
         public IActionResult ShoppingCart()
